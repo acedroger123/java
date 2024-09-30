@@ -1,0 +1,683 @@
+1. **Aim:** Write a Java program to calculate the factorial of a number.
+Code:
+import java.util.Scanner;
+
+public class Program {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to calculate its factorial: ");
+        int number = scanner.nextInt();
+
+        int fact = 1;
+        for (int i = 1; i <= number; i++) {
+            fact = fact * i;
+        }
+
+        System.out.println("Factorial of " + number + " is " + fact);
+
+        scanner.close();
+    }
+}
+
+
+2. **Aim:** Write a program to calculate the area of a rectangle by accepting values from the user.
+Code:
+import java.util.Scanner;
+
+public class Rectangle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the length of the rectangle: ");
+        double length = scanner.nextDouble();
+        System.out.print("Enter the width of the rectangle: ");
+        double width = scanner.nextDouble();
+        double area = length * width;
+        System.out.println("The area of the rectangle is: " + area);
+        scanner.close();
+    }
+}
+
+3. **Aim:** Write a program to demonstrate Constructor-Overloading.
+Code:
+public class Car {
+ public String make;
+ public String model;
+ public int year;
+ // Constructor with no parameters
+ public Car() {
+ make = "Unknown";
+ model = "Unknown";
+ year = 2019;
+ }
+ // Constructor with parameters for make and model
+ public Car(String mk, String ml) {
+ make = mk;
+ model = ml;
+ year = 2019; // Default year
+ }
+ // Constructor with parameters for make, model, and year
+ public Car(String mk, String ml, int yr) {
+ make = mk;
+ model = ml;
+ year = yr;
+ }
+ // Getter methods
+ public String getMake() {
+ return make;
+ }
+ public String getModel() {
+ return model;
+ }
+ public int getYear() {
+ return year;
+ }
+ // Setter methods (optional for this example)
+ public void setMake(String mk) {
+ make = mk;
+ }
+ public void setModel(String ml) {
+ model = ml;
+ }
+ public void setYear(int yr) {
+ year = yr;
+ }
+ // Main method to test the Car class
+ public static void main(String[] args) {
+ // Creating objects using different constructors
+ Car car1 = new Car();
+ Car car2 = new Car("Toyota", "Camry");
+ Car car3 = new Car("Honda", "Accord", 2020);
+ // Displaying information about each car
+ System.out.println("Car 1: " + car1.getMake() + " " + car1.getModel() + " " 
++ car1.getYear());
+ System.out.println("Car 2: " + car2.getMake() + " " + car2.getModel() + " " 
++ car2.getYear());
+ System.out.println("Car 3: " + car3.getMake() + " " + car3.getModel() + " " 
++ car3.getYear());
+// Example of using setter methods (optional for this example)
+ car1.setMake("Ford");
+ car1.setModel("Mustang");
+ car1.setYear(2018);
+ System.out.println("Updated Car 1: " + car1.getMake() + " " + 
+car1.getModel() + " " + car1.getYear());
+ }
+}
+
+
+4. **Aim:** Write a program to demonstrate the use of static variables.
+Code:
+class Static_Demo2 {
+    int count = 0;
+    
+    Static_Demo2() {
+        count++;
+        System.out.println(count);
+    }
+    
+    public static void main(String args[]) {
+        Static_Demo2 s1 = new Static_Demo2();
+        Static_Demo2 s2 = new Static_Demo2();
+        Static_Demo2 s3 = new Static_Demo2();
+    }
+}
+
+5. **Aim:** Write a program to demonstrate Single and Multilevel Inheritance.
+Code:
+class Animal {
+void eat() {
+System.out.println("Animal is eating");
+}
+}
+class Dog extends Animal {
+void bark() {
+System.out.println("Dog is barking");
+}
+}
+class Single {
+public static void main(String[] args) {
+Dog myDog = new Dog();
+myDog.eat();  
+myDog.bark(); 
+}
+}
+
+Code:
+class Animal{  
+void sleep(){System.out.println("The dog is sleeping");}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println("The dog is barking");}  
+}  
+class Dogeat extends Dog{  
+void eat(){System.out.println("The dog is eating");}  
+}  
+class Dogplay extends Dogeat{  
+void play(){System.out.println("The dog is playing");}  
+}  
+class Dogwalk extends Dogplay{  
+void walk(){System.out.println("The dog is walking");}  
+}  
+class Multilevel{  
+public static void main(String args[]){  
+Dogwalk d=new Dogwalk();  
+d.sleep();  
+d.bark();  
+d.eat();  
+d.play();
+d.walk();
+}
+}
+
+
+6. **Aim:** Write a Java program to create an interface Drawable with a method `draw()` and implement it in Circle, Rectangle, and Triangle classes to draw respective shapes.
+Code:
+interface Drawable
+{
+void draw();
+}
+
+class Rectangle implements Drawable
+{
+public void draw()
+{
+System.out.println("drawing rectangle");
+}
+}
+
+class Circle implements Drawable
+{
+public void draw()
+{
+ System.out.println("drawing circle");
+}
+}
+
+class Triangle implements Drawable
+{
+public void draw()
+{
+System.out.println("drawing trianlge");
+}
+}
+
+class TestInterface1 {
+public static void main(String[] args) {
+Rectangle r = new Rectangle();
+Circle c = new Circle();
+Triangle t = new Triangle();
+
+r.draw();
+c.draw();
+t.draw();
+}
+}
+
+
+7. **Aim:** Write a Java program that demonstrates the use of abstract classes and methods, creating a Sunstar class with a printInfo() method, and implementing it in an Employee class.
+Code:
+abstract class Sunstar
+{
+abstract void printInfo();
+}
+class Employee extends Sunstar
+{
+void printInfo()
+{
+String name = "Pakzad Avari";
+int age = 19;
+float salary = 222.2F;
+System.out.println("Name : "+name);
+System.out.println("Age : "+age);
+System.out.println("Salary : "+salary);
+}
+}
+
+class Abstract_demo {
+public static void main(String[] args)
+{
+Employee e = new Employee();
+e.printInfo();
+}
+}
+
+
+8. **Aim:** Write a Java program to demonstrate the user-defined Exceptions.
+Code:
+import java.util.Scanner;
+class InvalidAgeException extends Exception
+{
+InvalidAgeException(String msg)
+{
+super(msg);
+}
+}
+public class UserD_Exception {
+public static void main(String[] args) { 
+Scanner scanner = new Scanner(System.in); 
+System.out.print("Enter your age: ");
+try {
+int age = scanner.nextInt(); 
+checkAge(age);
+} catch (InvalidAgeException e) { 
+System.out.println(e.getMessage());
+} finally { 
+scanner.close();
+}
+}
+public static void checkAge(int age) throws InvalidAgeException { 
+if (age<18) {
+throw new InvalidAgeException("Age must be 18 or older.");
+}
+System.out.println("Access granted.");
+}
+}
+
+
+
+9. **Aim:** Write a Java program to set the background color of a frame using RGB values.
+Code:
+import java.awt.*;
+public class SetBackgroundDemo1 extends Frame
+{
+	public SetBackgroundDemo1()
+	{
+		
+		setTitle("Aditya KCSYCS22");
+		setVisible(true);
+		setSize(500,500);
+		Color c= new Color(200,100,50);
+		setBackground(c);
+	}
+	public static void main(String args[])
+	{
+		SetBackgroundDemo1 a=new SetBackgroundDemo1();
+	}
+}
+
+
+10. **Aim:** Write a Java program to create a label, textfields, radiobuttons and checkboxes.
+Code:
+import javax.swing.*;
+
+public class GUIExample {
+    public static void main(String[] args) {
+        // Create the frame
+        JFrame frame = new JFrame("Aditya KCSYCS22");
+        frame.setSize(500, 500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+        
+        // Create a label
+        JLabel label = new JLabel("User Information:");
+        label.setBounds(50, 20, 200, 30);
+        frame.add(label);
+        
+        // Create text fields
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setBounds(50, 60, 100, 30);
+        JTextField nameField = new JTextField();
+        nameField.setBounds(150, 60, 200, 30);
+        frame.add(nameLabel);
+        frame.add(nameField);
+
+        JLabel emailLabel = new JLabel("Email:");
+        emailLabel.setBounds(50, 100, 100, 30);
+        JTextField emailField = new JTextField();
+        emailField.setBounds(150, 100, 200, 30);
+        frame.add(emailLabel);
+        frame.add(emailField);
+        
+        // Create radio buttons
+        JRadioButton maleButton = new JRadioButton("Male");
+        maleButton.setBounds(50, 150, 100, 30);
+        JRadioButton femaleButton = new JRadioButton("Female");
+        femaleButton.setBounds(150, 150, 100, 30);
+        ButtonGroup genderGroup = new ButtonGroup();
+        genderGroup.add(maleButton);
+        genderGroup.add(femaleButton);
+        frame.add(maleButton);
+        frame.add(femaleButton);
+        
+        // Create checkboxes
+        JCheckBox javaCheckBox = new JCheckBox("Java");
+        javaCheckBox.setBounds(50, 200, 100, 30);
+        JCheckBox cppCheckBox = new JCheckBox("C++");
+        cppCheckBox.setBounds(150, 200, 100, 30);
+        frame.add(javaCheckBox);
+        frame.add(cppCheckBox);
+        
+        // Set the frame to be visible
+        frame.setVisible(true);
+    }
+}
+
+
+11. **Aim:** Write a Java program to create a table using prepared statements and insert records into the table.
+Code:
+package prac_prepared;
+
+import java.sql.*;
+
+public class DatabaseOperations {
+    public static void main(String[] args) {
+        // Create table
+        createTable();
+
+        // Insert records into the table
+        insertRecords();
+    }
+
+    public static void createTable() {
+        Connection conn = null;
+        PreparedStatement st = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kcsycs22?zeroDateTimeBehavior=convertToNull", "root", "root");
+
+            String SQL1 = "CREATE TABLE IF NOT EXISTS student_details (" +
+                          "ID INT PRIMARY KEY, " +
+                          "Name VARCHAR(30), " +
+                          "Address VARCHAR(30))";
+            st = conn.prepareStatement(SQL1);
+            st.execute();
+            System.out.println("Table created Successfully");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (st != null) st.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    public static void insertRecords() {
+        Connection conn = null;
+        PreparedStatement psmt = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kcsycs22?zeroDateTimeBehavior=convertToNull", "root", "root");
+
+            String SQL1 = "INSERT INTO student_details(ID, Name, Address) VALUES (?, ?, ?)";
+            psmt = conn.prepareStatement(SQL1);
+
+            // Insert first record
+            psmt.setInt(1, 101);
+            psmt.setString(2, "Aditya");
+            psmt.setString(3, "Pune");
+            int i = psmt.executeUpdate();
+            System.out.println(i + " Record Inserted");
+
+            // Insert second record
+            psmt.setInt(1, 102);
+            psmt.setString(2, "John");
+            psmt.setString(3, "Mumbai");
+            i = psmt.executeUpdate();
+            System.out.println(i + " Record Inserted");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            try {
+                if (psmt != null) psmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+
+        System.out.println("Aditya Gupta KCSYCS22");
+    }
+}
+
+
+12. **Aim:** Write a Java program to demonstrate transaction rollback in JDBC.
+Code:
+package javaapplication1;
+import java.sql.*;
+
+public class Transaction__rollback {
+     public static void main(String[] args) throws SQLException, ClassNotFoundException{
+         Class.forName("com.mysql.cj.jdbc.Driver");
+System.out.println("Driver Loaded Successfully");
+
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student?zeroDateTimeBehavior=convertToNull","root","root");
+
+conn.setAutoCommit(false);
+Statement stmt = conn.createStatement();
+try {
+stmt.executeUpdate("insert into student (student_id, name, age, gender, address) values (6, 'Aditya', 19, 'Male', 'Aditya')");
+stmt.executeUpdate("insert into student (student_id, name, age, gender, address) values (7, 'Pakzad', 19, 'Male', 'Grant Road')");
+stmt.executeUpdate("insert into student (student_id, name, age, gender, address) values (8, 'Farhan', 19, 'Male', 'Vasai')");
+stmt.executeUpdate("insert into student (student_id, name, age, gender, address) values (9, 'Aryan', 19, 'Male', 'Churchgate')");
+
+conn.commit();
+System.out.println("Record inserted!!!");
+
+}
+catch(SQLException ex){
+    conn.rollback();
+    
+System.out.println("Records could not be inserted and transaction rolled back");
+}
+stmt.close();
+conn.close();
+}
+}
+
+
+
+13. **Aim:** Write a Servlet to accept a username from an HTML form, store it as a cookie, and retrieve it in another Servlet to display the value.
+Code:
+Html:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>TODO supply a title</title>
+www
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> </head>
+<body>
+<form action="Store" method="post">
+<label for="username">Enter Your Name:</label>
+<input type="text" id="username" name="username" required> <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+Store.java:
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Store extends HttpServlet {
+ 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
+        try (PrintWriter out = response.getWriter()) {
+        String username = request.getParameter("username");
+        Cookie userCookie = new Cookie("username", username);
+        userCookie.setMaxAge(24 * 60 * 60);
+        response.addCookie(userCookie);
+        response.sendRedirect("Retreive");
+        response.setContentType("text/html;charset=UTF-8"):
+        }
+    }  
+}
+
+Retreive.java:
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Retreive extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+        Cookie[] cookies = request.getCookies();
+        String userName = null;
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("username")) {
+                    userName = cookie.getValue();
+                    break;
+                }
+            }
+        }
+        response.setContentType("text/html");
+        if (userName != null) {
+            response.getWriter().println("Hello, " + userName + "! Welcome back.");
+        } else {
+            response.getWriter().println("No user name found in cookies.");
+        }
+    }
+        }
+    }
+
+
+14. **Aim:** Write a JSP program to accept a username from an HTML form, store it as a session variable, and retrieve the value in another JSP page to display it.
+Code:
+Sessionhtml.html:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>TODO supply a title</title>
+wwwwww
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h2>Enter Your Name</h2>
+<form action="storeSession.jsp" method="post">
+<label for="username">User Name:</label>
+<input type="text" id="username" name="username" required> <button type="submit">Submit</button>
+</form>
+</body>
+</html>
+
+storeSession.jsp:
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Get the username from the form
+    String username = request.getParameter("username");
+
+    // Store the username in the session
+    session.setAttribute("username", username);
+
+    // Redirect to the page that displays the session value
+    response.sendRedirect("displaySession.jsp");
+%>
+
+displaySession.jsp:
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Retrieve the username from the session
+    String username = (String) session.getAttribute("username");
+
+    // Check if the session variable exists
+    if (username == null) {
+        username = "Session variable not found";
+    }
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Session</title>
+</head>
+<body>
+    <h2>Hello, <%= username %></h2>
+</body>
+</html>
+
+15. **Aim:** Write a JSP program that validates a user based on their username and password stored in the database.(HERE CREATE A SIMPLE TABLE WITH ONE RECORD DIRECTLY IN THE DATABASE FOR EXAM)
+Code:
+Validatehtml.html:
+
+<html>
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> </head>
+<body>
+<h2>Validate User</h2>
+<form action="validateUser.jsp" method="post">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required><br><br>
+<label for="location">Location:</label>
+<input type="text" id="location" name="location" required><br><br>
+<button type="submit">Validate</button>
+</form>
+</body>
+</html>
+
+validateUser.jsp
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%
+    // Get form data
+    String name = request.getParameter("name");
+    String address = request.getParameter("location");
+    try {
+        // Load JDBC driver (for MySQL)
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        // Establish connection
+       Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kcsycs22?zeroDateTimeBehavior=convertToNull","root","root");
+
+
+        // SQL query to retrieve all records from 'sycs' table
+        String sql = "SELECT * FROM std1 WHERE name = ? AND address = ?";
+
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, name);
+        pstmt.setString(2, address);
+
+        // Execute the query
+        ResultSet rs = pstmt.executeQuery();
+
+        // Check if a matching record exists
+        if (rs.next()) {
+            out.println("<h2>User validated successfully!</h2>");
+        } else {
+            out.println("<h2>Validation failed: User not found.</h2>");
+        }
+    }catch (Exception e) {
+        e.printStackTrace();
+        out.println("<h2>Error: " + e.getMessage() + "</h2>");
+    } 
+%>
+
+
+
+
+
+
+
